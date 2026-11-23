@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="ru"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="theme-color" content="#152331"><title>World Domination | WD</title>
+<link rel="stylesheet" href="/style.css"><script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head><body><div class="app">
+<header><div class="logo">◈ WORLD DOMINATION <small>| WD</small></div><div class="avatar">WD</div></header>
+<main>
+<section id="home" class="screen active">
+<div class="hero"><div class="eyebrow">ГЛОБАЛЬНАЯ СТРАТЕГИЯ</div><h1>Твоя история.<br><em>Твои решения.</em></h1><p>Управляй государством, меняй ход истории и создавай собственные кампании.</p><div class="hero-map"><span>EUROPE</span><b>1936</b><i></i><i></i><i></i></div></div>
+<div class="actions"><button class="gold" id="newRoom">＋ СОЗДАТЬ КОМНАТУ</button><button class="outline" id="showJoin">ВВЕСТИ КОД ПРИГЛАШЕНИЯ</button><button class="outline" id="refreshRooms">ОБНОВИТЬ СПИСОК КОМНАТ</button></div>
+<div class="section-head"><span>ОТКРЫТЫЕ КОМНАТЫ</span><small id="roomCount">Загрузка…</small></div><div id="roomList" class="room-list"><div class="empty">Загрузка комнат…</div></div>
+<div class="section-head"><span>ОДИНОЧНАЯ ИГРА</span></div><div class="solo-card"><div><b>Кампания 1936</b><p>Начни историческую кампанию против ИИ</p></div><button class="mini" id="soloBtn">ИГРАТЬ</button></div>
+</section>
+<section id="create" class="screen">
+<button class="back" data-back>← Назад</button><div class="eyebrow">НОВАЯ КАМПАНИЯ</div><h1>Создать комнату</h1>
+<label>Название комнаты<input id="roomName" maxlength="40" value="Новая историческая кампания"></label>
+<label>Эпоха<select id="epoch">
+<option value="empire_1914">Эпоха империй · 1900–1918</option>
+<option value="interwar_1936">Межвоенный период · 1919–1938</option>
+<option value="ww2_1936" selected>Вторая мировая · старт 1936</option>
+<option value="coldwar_1946">Холодная война · 1946–1991</option>
+<option value="modern_2026">Современный мир · 1991–2026</option>
+<option value="alternate">Альтернативная история</option></select></label>
+<div id="epochInfo" class="hint">Исторический старт кампании 1936 года.</div>
+<label>Тип сценария<select id="scenario"><option value="historical">Исторический</option><option value="alternate">Альтернативный</option></select></label>
+<div class="two"><label>Игроков<select id="maxPlayers"><option>2</option><option>4</option><option selected>8</option><option>10</option><option>20</option></select></label><label>Скорость<select id="speed"><option value="slow">Медленная</option><option value="normal" selected>Обычная</option><option value="fast">Быстрая</option></select></label></div>
+<button class="gold full" id="createRoomBtn">СОЗДАТЬ КОМНАТУ</button>
+</section>
+<section id="join" class="screen"><button class="back" data-back>← Назад</button><div class="eyebrow">ПРИСОЕДИНЕНИЕ</div><h1>Войти в комнату</h1><label>Код приглашения<input id="inviteCode" maxlength="6" placeholder="Например, A7K2PD" autocapitalize="characters"></label><button class="gold full" id="joinBtn">ПРИСОЕДИНИТЬСЯ</button></section>
+<section id="lobby" class="screen"><button class="back" data-home>← К комнатам</button><div class="eyebrow">ИГРОВАЯ КОМНАТА</div><h1 id="lobbyName">Кампания</h1><div class="room-code">КОД ПРИГЛАШЕНИЯ <b id="lobbyCode">------</b><button id="copyCode">КОПИРОВАТЬ</button></div><div class="lobby-meta" id="lobbyMeta"></div><div class="section-head"><span>УЧАСТНИКИ</span><small id="playerCount"></small></div><div id="players" class="players"></div><div class="settings-panel">
+<div class="section-head"><span>НАСТРОЙКИ КАМПАНИИ</span><small>до старта</small></div>
+<label>Предлагаемая эпоха<select id="lobbyEpoch"><option value="empire_1914">Эпоха империй</option><option value="interwar_1936">Межвоенный период</option><option value="ww2_1936">Вторая мировая · 1936</option><option value="coldwar_1946">Холодная война</option><option value="modern_2026">Современный мир</option><option value="alternate">Альтернативная история</option></select></label>
+<label>Сценарий<select id="lobbyScenario"><option value="historical">Исторический</option><option value="alternate">Альтернативный</option></select></label>
+<button class="outline full" id="proposeSettings">ПРЕДЛОЖИТЬ ИЗМЕНЕНИЕ · ГОЛОСОВАНИЕ</button>
+<div id="proposalPanel" class="hint" hidden></div>
+<div class="two"><button class="mini" id="voteYes" hidden>ЗА</button><button class="mini" id="voteNo" hidden>ПРОТИВ</button></div>
+<button class="outline full" id="hostSettings" hidden>ПРИМЕНИТЬ НАСТРОЙКИ (СОЗДАТЕЛЬ)</button>
+</div>
+<button class="outline full" id="readyBtn">Я ГОТОВ</button><button class="gold full" id="startBtn" hidden>НАЧАТЬ КАМПАНИЮ</button></section>
+<section id="game" class="screen"><div class="eyebrow">КАМПАНИЯ · ПРОТОТИП</div><h1 id="gameTitle">1936</h1><div class="game-map"><div class="continent c1">EUROPE</div><div class="continent c2">ASIA</div><div class="continent c3">AFRICA</div><div class="map-stamp">WORLD<br>MAP</div></div><div class="hint">Это следующий этап прототипа карты. Здесь появятся выбираемые провинции, границы, фронты и панели государств.</div><div class="section-head"><span>СТРАНА</span></div><div class="solo-card"><div><b>Германия</b><p>Политика · промышленность · технологии</p></div><span>🇩🇪</span></div><button class="outline full" data-home>В главное меню</button></section>
+</main>
+<nav><button class="tab active" data-tab="home">⌂<small>Главная</small></button><button class="tab" data-tab="create">＋<small>Комната</small></button><button class="tab" data-tab="game">▦<small>Карта</small></button><button class="tab" data-tab="home">⚙<small>Ещё</small></button></nav>
+<div id="toast" class="toast"></div></div><script src="/app.js"></script></body></html>
