@@ -102,7 +102,7 @@ async function api(req,env,path) {
     await env.DB.prepare("INSERT OR IGNORE INTO room_players(room_id,telegram_id) VALUES(?,?)").bind(room.id,uid).run();
     return json({room:await roomDetails(env,room.id)});
   }
-  const roomMatch=path.match(/^\\/api\\/rooms\\/([a-f0-9-]+)$/);
+  const roomMatch = path.match(/^\/api\/rooms\/([a-f0-9-]+)$/);
   if(req.method==="GET" && roomMatch) {
     const room=await roomDetails(env,roomMatch[1]);
     if(!room) return json({error:"Комната не найдена."},404);
