@@ -10,7 +10,7 @@ run_worker_first = true
 [[d1_databases]]
 binding = "DB"
 database_name = "world-domination-wd"
-database_id = "REPLACE_WITH_D1_DATABASE_ID"
+database_id = "9e30aec9-21a1-44b6-93ec-9b49ff47aa87"
 
 [vars]
-BOT_USERNAME = "REPLACE_WITH_BOT_USERNAME"
+BOT_USERNAME = "WorldsDomination_Bot"
