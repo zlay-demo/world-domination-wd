@@ -175,7 +175,7 @@ async function api(req,env,path) {
     }
     return json({status,yes:tally.yes||0,no:tally.no||0,required:threshold,room:await roomDetails(env,proposal.room_id)});
   }
-  const readyMatch=path.match(/^\\/api\\/rooms\\/([a-f0-9-]+)\\/ready$/);
+  const readyMatch = path.match(/^\/api\/rooms\/([a-f0-9-]+)\/ready$/);
   if(req.method==="POST" && readyMatch) {
     const b=await req.json(), rid=readyMatch[1];
     const membership=await env.DB.prepare("SELECT * FROM room_players WHERE room_id=? AND telegram_id=?").bind(rid,uid).first();
